@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="600"></canvas>
+</body>
+
+<script>
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+
+	//sky
+	var grd1 = ctx.createLinearGradient(0, 0, 0, 400);
+	grd1.addColorStop(0, "blue");
+	grd1.addColorStop(1, "white");
+
+	ctx.fillStyle = grd1;
+	ctx.fillRect(0, 0, 500, 400);
+
+	//grass
+	var grd2 = ctx.createLinearGradient(0, 300, 0, 600);
+	grd2.addColorStop(0.5, "green");
+	grd2.addColorStop(1, "white");
+
+	ctx.fillStyle = grd2;
+	ctx.fillRect(0, 400, 500, 200);
+
+	//house
+  //roof
+	ctx.beginPath();
+	ctx.moveTo(275, 150);
+	ctx.lineTo(375, 250);
+	ctx.lineTo(175, 250);
+	ctx.fillStyle = "#333333";
+	ctx.fill();
+
+	ctx.fillStyle = "#5e5e5e";
+	ctx.fillRect(200, 250, 150, 150);
+
+	//window
+	ctx.strokeRect(210, 260, 60, 80);
+	ctx.strokeRect(215, 265, 50, 70);
+	ctx.fillStyle = "white";
+	ctx.fillRect(216, 266, 48, 68)
+
+	//heart
+	ctx.beginPath();
+	ctx.moveTo(75, 40);
+	ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+	ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+	ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+	ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+	ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+	ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+	ctx.fillStyle = "#ff0000";
+	ctx.fill();
+
+	//sun
+	ctx.beginPath();
+	ctx.fillStyle = "#ffff00";
+	ctx.arc(400, 50, 30, 0.25 * Math.PI, 1.25 * Math.PI, false);
+	ctx.fill();
+	ctx.beginPath();
+	ctx.arc(400, 50, 30, 0.75 * Math.PI, 1.75 * Math.PI, false);
+	ctx.fill();
+</script>
+</html>
